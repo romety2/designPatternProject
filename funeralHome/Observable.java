@@ -33,8 +33,8 @@ public class Observable extends CoffinObservable
 		Iterator<Observer> it = observers.iterator();
 		while (it.hasNext())
 		{
-			Observer observer = (Observer)it.next();
-			observer.update(coffin);
+			Observer ob = (Observer)it.next();
+			ob.update(coffin);
 		}
 	}
 	

@@ -18,7 +18,7 @@ public class Cemetery extends Coffin
 		Iterator<Coffin> it = orders.iterator();
 		while (it.hasNext())
 		{
-			Coffin c = (Coffin)it.next();;
+			Coffin c = (Coffin)it.next();
 			c.createCoffin();
 		}
 	}
@@ -46,7 +46,7 @@ public class Cemetery extends Coffin
 		Iterator<Coffin> it = orders.iterator();
 		while (it.hasNext())
 		{
-			Coffin c = (Coffin)it.next();;
+			Coffin c = (Coffin)it.next();
 			c.createObserver(ob);
 		}
 	}
@@ -57,7 +57,7 @@ public class Cemetery extends Coffin
 		Iterator<Coffin> it = orders.iterator();
 		while (it.hasNext())
 		{
-			Coffin c = (Coffin)it.next();;
+			Coffin c = (Coffin)it.next();
 			c.deleteObserver(ob);
 		}
 	}	
