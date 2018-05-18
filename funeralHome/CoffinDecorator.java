@@ -3,7 +3,7 @@ package funeralHome;
 public class CoffinDecorator extends Coffin {
 
 	Coffin coffin;
-	static int countCoffin;
+	static int countCoffin = 0;
 	
 	public CoffinDecorator(Coffin c)
 	{
@@ -11,10 +11,16 @@ public class CoffinDecorator extends Coffin {
 	}
 	
 	@Override
-	void create()
+	void createCoffin()
 	{
-		coffin.create();
+		coffin.createCoffin();
 		countCoffin++;
+	}
+	
+	@Override
+	public String getMaterial()
+	{
+		return coffin.getMaterial();
 	}
 
 	public static int getCountCoffin()

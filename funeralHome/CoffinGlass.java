@@ -3,33 +3,40 @@ package funeralHome;
 public class CoffinGlass extends Coffin
 {
 
-	FuneralHomeFactory factory;
+	WreathFactory wreathFactory;
 	Observable observable;
 	 
-	public CoffinGlass(FuneralHomeFactory f)
+	public CoffinGlass(WreathFactory wf)
 	{
-		this.factory = f;
+		this.wreathFactory = wf;
+		this.material = "glass";
 		observable = new Observable(this);
 	}
 	
 	@Override
-	void create()
+	void createCoffin()
 	{
 		// System.out.println("The glass coffin is ready");
-		wreath = factory.create();
-	}	
+		wreath = wreathFactory.create();
+	}		
+	
+	@Override
+	public String getMaterial()
+	{
+		return material;
+	}
 	
 	@Override
 	public void insertTheCorpse()
 	{
-		// System.out.println("The glass  coffin ready for the funeral");
+		// System.out.println("The glass coffin ready for the funeral");
 		informObservers();
 	}
 	
 	@Override
 	public String toString()
 	{
-		return "The glass coffin with a wreath of color " + wreath;
+		return "The " + material + " coffin with a wreath of color " + wreath;
 	}	
 	
 	@Override
@@ -48,5 +55,5 @@ public class CoffinGlass extends Coffin
 	public void informObservers()
 	{
 		observable.informObservers();
-	}	
+	}
 }

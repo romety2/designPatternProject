@@ -6,7 +6,7 @@ public class FuneralHomeJoyful extends FuneralHome
 	protected Coffin createCoffin(String type)
 	{
 		Coffin c = null;
-		FuneralHomeFactory f = new FuneralHomeJoyfulFactory();
+		WreathFactory f = new WreathJoyfulFactory();
 		
 		if ("wooden".equals(type))
 		{			  

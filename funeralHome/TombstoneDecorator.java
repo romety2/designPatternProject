@@ -3,17 +3,25 @@ package funeralHome;
 public class TombstoneDecorator extends Coffin
 {
 	Coffin coffin;
+	String material = "default";
 	static int countCoffin;
 	
-	public TombstoneDecorator(Coffin c) {
+	public TombstoneDecorator(Coffin c)
+	{
 		this.coffin = c;
 	}
 	
 	@Override
-	void create()
+	void createCoffin()
 	{
-		coffin.create();
+		coffin.createCoffin();
 		countCoffin++;
+	}
+	
+	@Override
+	public String getMaterial()
+	{
+		return material;
 	}
 
 	public static int getCountCoffin()

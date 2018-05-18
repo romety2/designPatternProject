@@ -1,6 +1,6 @@
 package funeralHome;
 
-public class FuneralHomeMournfulFactory implements FuneralHomeFactory
+public class WreathMournfulFactory implements WreathFactory
 {
 	@Override
 	public Wreath create()

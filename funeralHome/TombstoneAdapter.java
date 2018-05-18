@@ -4,6 +4,7 @@ public class TombstoneAdapter extends Coffin {
 
 	Tombstone tombstone;
 	Observable observable;
+	String material = "default";
 	
 	public TombstoneAdapter(Tombstone t)
 	{
@@ -12,10 +13,16 @@ public class TombstoneAdapter extends Coffin {
 	}
 	
 	@Override
-	void create()
+	void createCoffin()
 	{
-		tombstone.create();
+		tombstone.createWreath();
 		informObservers();
+	}
+	
+	@Override
+	public String getMaterial()
+	{
+		return material;
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public abstract class FuneralHome
 	{
 		Coffin c = createCoffin(type);
 
-		c.create();
+		c.createCoffin();
 		c.insertTheCorpse();
 		
 		return c;

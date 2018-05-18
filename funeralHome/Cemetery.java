@@ -13,13 +13,13 @@ public class Cemetery extends Coffin
 	}
 	
 	@Override
-	public void create()
+	public void createCoffin()
 	{
 		Iterator<Coffin> it = orders.iterator();
 		while (it.hasNext())
 		{
 			Coffin c = (Coffin)it.next();;
-			c.create();
+			c.createCoffin();
 		}
 	}
 
@@ -27,6 +27,12 @@ public class Cemetery extends Coffin
 	public String toString()
 	{
 		return "Cementery";
+	}
+	
+	@Override
+	public String getMaterial()
+	{
+		return "cementry";
 	}
 
 	@Override

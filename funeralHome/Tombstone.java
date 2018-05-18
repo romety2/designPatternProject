@@ -2,20 +2,26 @@ package funeralHome;
 
 public class Tombstone
 {
-	FuneralHomeFactory factory;
+	WreathFactory factory;
 	 
-	public Tombstone(FuneralHomeFactory f)
+	public Tombstone(WreathFactory f)
 	{
 		this.factory = f;
 	}
 	
-	void przygotuj()
+	void insertTheCorpse()
 	{
-	}	
+	}
 	
-	public void create()
+	public void createTombstone()
 	{
 		//System.out.println("A tombstone was constructed");
+		createWreath();
+	}
+	
+	void createWreath()
+	{
+		//System.out.println("A wreath was constructed");
 	}
 	
 	@Override

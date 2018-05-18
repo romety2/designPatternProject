@@ -6,7 +6,7 @@ public class FuneralHomeMournful extends FuneralHome
 	protected Coffin createCoffin(String type)
 	{
 		Coffin c = null;
-		FuneralHomeFactory f = new FuneralHomeMournfulFactory();
+		WreathFactory f = new WreathMournfulFactory();
 		
 		if ("wooden".equals(type))
 		{			  
@@ -15,12 +15,12 @@ public class FuneralHomeMournful extends FuneralHome
 		}
 		else if ("stone".equals(type))
 		{ 
-			c = new CoffinDecorator(new CoffinGlass(f));
+			c = new CoffinDecorator(new CoffinStone(f));
 			//System.out.println("A stone coffin was created");
 		}
 		else if ("glass".equals(type))
 		{ 
-			c = new CoffinDecorator(new CoffinStone(f));
+			c = new CoffinDecorator(new CoffinGlass(f));
 			//System.out.println("A glass coffin was created");
 		}
 		else if ("tombstone".equals(type))

@@ -3,21 +3,29 @@ package funeralHome;
 public class CoffinWooden extends Coffin
 {
 
-	FuneralHomeFactory factory;
+	WreathFactory wreathFactory;
 	Observable observable;
+	String material = null;
 	 
-	public CoffinWooden(FuneralHomeFactory f)
+	public CoffinWooden(WreathFactory wf)
 	{
-		this.factory = f;
+		this.wreathFactory = wf;
+		this.material = "wooden";
 		observable = new Observable(this);
 	}
 	
 	@Override
-	void create()
+	void createCoffin()
 	{
 		// System.out.println("The wooden coffin is ready");
-		wreath = factory.create();
+		wreath = wreathFactory.create();
 	}	
+	
+	@Override
+	public String getMaterial()
+	{
+		return material;
+	}
 	
 	@Override
 	public void insertTheCorpse()
@@ -29,7 +37,7 @@ public class CoffinWooden extends Coffin
 	@Override
 	public String toString()
 	{
-		return "The wooden coffin with a wreath of color " + wreath;
+		return "The " + material + " coffin with a wreath of color " + wreath;
 	}	
 	
 	@Override
