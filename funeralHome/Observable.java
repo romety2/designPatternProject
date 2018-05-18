@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Observable extends CoffinObservable
 {
-	ArrayList observers = new ArrayList();
+	ArrayList<Observer> observers = new ArrayList<Observer>();
 	CoffinObservable coffin;
 	
 	public Observable(CoffinObservable cob)
@@ -23,23 +23,22 @@ public class Observable extends CoffinObservable
 	public void deleteObserver(Observer ob)
 	{
 		int i = observers.indexOf(ob);
-		if(i >= 0) {
+		if(i >= 0)
 			observers.remove(i);
-		}
 	}
 	
 	@Override
 	public void informObservers()
 	{
-		Iterator iterator = observers.iterator();
-		while (iterator.hasNext())
+		Iterator<Observer> it = observers.iterator();
+		while (it.hasNext())
 		{
-			Observer observer = (Observer)iterator.next();
+			Observer observer = (Observer)it.next();
 			observer.update(coffin);
 		}
 	}
 	
-	public Iterator getObservers()
+	public Iterator<Observer> getObservers()
 	{
 		return observers.iterator();
 	}	

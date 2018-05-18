@@ -16,7 +16,7 @@ public class TombstoneDecorator extends Coffin
 		countCoffin++;
 	}
 
-	public static int getLiczbaPaczkow()
+	public static int getCountCoffin()
 	{
 		return countCoffin;
 	}

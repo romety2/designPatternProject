@@ -15,7 +15,7 @@ public class Tombstone
 	
 	public void create()
 	{
-		System.out.println("A tombstone was constructed");
+		//System.out.println("A tombstone was constructed");
 	}
 	
 	@Override

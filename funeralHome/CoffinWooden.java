@@ -15,20 +15,21 @@ public class CoffinWooden extends Coffin
 	@Override
 	void create()
 	{
+		// System.out.println("The wooden coffin is ready");
 		wreath = factory.create();
 	}	
 	
 	@Override
 	public void insertTheCorpse()
 	{
-		System.out.println("The coffin is ready");
+		// System.out.println("The wooden coffin ready for the funeral");
 		informObservers();
 	}
 	
 	@Override
 	public String toString()
 	{
-		return "The coffin with a wreath of color " + wreath;
+		return "The wooden coffin with a wreath of color " + wreath;
 	}	
 	
 	@Override

@@ -15,21 +15,21 @@ public class CoffinGlass extends Coffin
 	@Override
 	void create()
 	{
-		System.out.println("The coffin is ready");
+		// System.out.println("The glass coffin is ready");
 		wreath = factory.create();
 	}	
 	
 	@Override
 	public void insertTheCorpse()
 	{
-		System.out.println("The coffin ready for the funeral");
+		// System.out.println("The glass  coffin ready for the funeral");
 		informObservers();
 	}
 	
 	@Override
 	public String toString()
 	{
-		return "The coffin with a wreath of color " + wreath;
+		return "The glass coffin with a wreath of color " + wreath;
 	}	
 	
 	@Override

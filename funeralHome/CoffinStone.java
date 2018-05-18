@@ -15,20 +15,21 @@ public class CoffinStone extends Coffin
 	@Override
 	void create()
 	{
+		// System.out.println("The stone coffin is ready");
 		wreath = factory.create();
 	}	
 	
 	@Override
 	public void insertTheCorpse()
 	{
-		System.out.println("The coffin is ready");
+		// System.out.println("The stone coffin ready for the funeral");
 		informObservers();
 	}
 	
 	@Override
 	public String toString()
 	{
-		return "The coffin with a wreath of color " + wreath;
+		return "The stone coffin with a wreath of color " + wreath;
 	}	
 	
 	@Override

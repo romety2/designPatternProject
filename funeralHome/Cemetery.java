@@ -1,10 +1,11 @@
 package funeralHome;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Cemetery extends Coffin
 {
-	ArrayList<Coffin> orders = new ArrayList();
+	ArrayList<Coffin> orders = new ArrayList<Coffin>();
 	
 	public void addOrder(Coffin c)
 	{
@@ -14,9 +15,10 @@ public class Cemetery extends Coffin
 	@Override
 	public void create()
 	{
-		for(Coffin or : orders)
+		Iterator<Coffin> it = orders.iterator();
+		while (it.hasNext())
 		{
-			Coffin c = or;
+			Coffin c = (Coffin)it.next();;
 			c.create();
 		}
 	}
@@ -35,9 +37,10 @@ public class Cemetery extends Coffin
 	@Override
 	public void createObserver(Observer ob)
 	{
-		for(Coffin or : orders)
+		Iterator<Coffin> it = orders.iterator();
+		while (it.hasNext())
 		{
-			Coffin c = or;
+			Coffin c = (Coffin)it.next();;
 			c.createObserver(ob);
 		}
 	}
@@ -45,9 +48,10 @@ public class Cemetery extends Coffin
 	@Override
 	public void deleteObserver(Observer ob)
 	{
-		for(Coffin or : orders)
+		Iterator<Coffin> it = orders.iterator();
+		while (it.hasNext())
 		{
-			Coffin c = or;
+			Coffin c = (Coffin)it.next();;
 			c.deleteObserver(ob);
 		}
 	}	
