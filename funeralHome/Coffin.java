@@ -1,14 +1,19 @@
 package funeralHome;
 
-public abstract class Coffin extends CoffinObservable
-{	
-	Wreath wreath;
+abstract class Coffin 
+{
+	private String material = null;
+	//private ornamentation = null;
+	//private wreath = null;
 	
-	String material;
+	void setMaterial(String material)
+	{
+		this.material = material;
+	}
 	
-	abstract void createCoffin();
-				
-	abstract void insertTheCorpse();
-	
-	public abstract String getMaterial();
+	String getMaterial()
+	{
+		return this.material;
+	}
+
 }
