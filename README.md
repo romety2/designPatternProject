@@ -1,8 +1,5 @@
-"Design Pattern - Funeral Home"
+"Design Pattern Project - Funeral Home"
 
 Design patterns used:
 + factory
-+ adapter
-+ decorator 
-+ iterator
-+ observer 
++ singleton 
