@@ -1,4 +1,4 @@
-package funeralHome;
+package funeralHome.coffin;
 
 public class FactoryWoodenCoffin extends Coffin
 {
