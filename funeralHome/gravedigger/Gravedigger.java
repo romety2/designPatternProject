@@ -1,5 +1,7 @@
 package funeralHome.gravedigger;
 
+import funeralHome.coffin.Coffin;
+
 abstract public class Gravedigger 
 {
 	protected Gravedigger supervision;
@@ -8,4 +10,6 @@ abstract public class Gravedigger
 	{
 		supervision = gravedigger;
 	}
+	
+	protected abstract void digGrave(Coffin coffin);
 }

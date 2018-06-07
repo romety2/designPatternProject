@@ -2,7 +2,7 @@ package funeralHome.preson;
 
 public abstract class Person
 {
-	private String firstName;
+	protected String firstName;
 	private String lastName;
 	
 	public void setFirstName(String firstName)
