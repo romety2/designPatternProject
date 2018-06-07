@@ -2,20 +2,25 @@ package funeralHome.coffin;
 
 import java.util.ArrayList;
 
-abstract public class Coffin 
+abstract public class Coffin implements ICoffin
 {
 	private String material = null;
-	private ArrayList<String> ornamentation = new ArrayList<String>();
+	private ArrayList<String> ornamentations = new ArrayList<String>();
 	private Boolean wreath = false;
 	
-	public void setMaterial(String material)
+	protected void setMaterial(String material)
 	{
 		this.material = material;
 	}
 	
-	public void setOrnamentation(ArrayList<String> ornamentation)
+	public void setOrnamentations(ArrayList<String> ornamentations)
 	{
-		this.ornamentation = ornamentation;
+		this.ornamentations = ornamentations;
+	}
+	
+	public void addOrnamentation(String ornamentation)
+	{
+		this.ornamentations.add(ornamentation);
 	}
 	
 	public void setWreath()
@@ -33,9 +38,9 @@ abstract public class Coffin
 		return this.material;
 	}
 	
-	public ArrayList<String> getOrnamentation()
+	public ArrayList<String> getOrnamentations()
 	{
-		return this.ornamentation;
+		return this.ornamentations;
 	}
 	
 	public Boolean getWreath()

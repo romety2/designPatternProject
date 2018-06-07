@@ -24,12 +24,12 @@ public class FactoryWoodenCoffin implements IFactoryCoffin
 		return new WoodenCoffin();
 	}
 	
-	public Coffin makeWithOrnamentationCoffin()
+	public Coffin makeWithOrnamentationsCoffin()
 	{
 		Coffin coffin = new WoodenCoffin();
 		ArrayList<String> ornament = new ArrayList<String>();
 		ornament.add("flowers");
-		coffin.setOrnamentation(ornament);
+		coffin.setOrnamentations(ornament);
 		return coffin;
 	}
 	
@@ -45,7 +45,7 @@ public class FactoryWoodenCoffin implements IFactoryCoffin
 		Coffin coffin = new WoodenCoffin();
 		ArrayList<String> ornament = new ArrayList<String>();
 		ornament.add("flowers");
-		coffin.setOrnamentation(ornament);
+		coffin.setOrnamentations(ornament);
 		coffin.setWreath();
 		return coffin;
 	}

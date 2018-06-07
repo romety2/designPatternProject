@@ -24,12 +24,12 @@ public class FactoryGlassCoffin implements IFactoryCoffin
 		return new GlassCoffin();
 	}
 	
-	public Coffin makeWithOrnamentationCoffin()
+	public Coffin makeWithOrnamentationsCoffin()
 	{
 		Coffin coffin = new GlassCoffin();
 		ArrayList<String> ornament = new ArrayList<String>();
-		ornament.add("snitchs");
-		coffin.setOrnamentation(ornament);
+		ornament.add("ribbons");
+		coffin.setOrnamentations(ornament);
 		return coffin;
 	}
 	
@@ -44,8 +44,8 @@ public class FactoryGlassCoffin implements IFactoryCoffin
 	{
 		Coffin coffin = new GlassCoffin();
 		ArrayList<String> ornament = new ArrayList<String>();
-		ornament.add("snitchs");
-		coffin.setOrnamentation(ornament);
+		ornament.add("ribbons");
+		coffin.setOrnamentations(ornament);
 		coffin.setWreath();
 		return coffin;
 	}
