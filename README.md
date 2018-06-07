@@ -4,3 +4,4 @@ Design patterns used:
 + decorator
 + factory
 + singleton 
++ template method 
