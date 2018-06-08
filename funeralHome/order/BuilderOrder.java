@@ -37,9 +37,9 @@ public class BuilderOrder
 		return this;
 	}
 	
-	public BuilderOrder corpse(String firstName, String lastName, int age)
+	public BuilderOrder corpse(String firstName, String lastName, int age, int growth)
 	{
-		this.order.setCorpse(new Corpse(firstName, lastName, age));
+		this.order.setCorpse(new Corpse(firstName, lastName, age, growth));
 		return this;
 	}
 	

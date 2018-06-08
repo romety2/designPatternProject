@@ -138,11 +138,11 @@ public class TestFuneralHome
 		BuilderOrder bot = new BuilderOrder();
 		
 		Order orderC = 
-		boc.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 77)
+		boc.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 77, 50)
 		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		
 		Order orderT = 
-		bot.client("Jan2", "Kowalski2", "997").corpse("Michael2", "Jacson2", 77)
+		bot.client("Jan2", "Kowalski2", "997").corpse("Michael2", "Jacson2", 77, 50)
 		.coffin(new StoneTombstone(FactoryWoodenCoffin.getInstance().makeEmptyCoffin()))
 		.Build();
 		
@@ -173,13 +173,13 @@ public class TestFuneralHome
 		BuilderOrder bo3 = new BuilderOrder();
 		
 		Order order1 = 
-		bo1.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 2)
+		bo1.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 6, 46)
 		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		Order order2 = 
-		bo2.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 8)
+		bo2.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 25, 132)
 		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		Order order3 = 
-		bo3.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 40)
+		bo3.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 21, 182)
 		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		
 		Assert.assertTrue(gs.handleDigging(order1).equals("Junior gravedigger dig grave"));

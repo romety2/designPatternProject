@@ -13,7 +13,7 @@ public class JuniorGravedigger extends Gravedigger
 	
 	public String digGrave(Order order)
 	{
-		if(order.getCorpse().getAge() <= 4)
+		if(order.getCorpse().getGrowth() <= 50)
 		{
 			return "Junior gravedigger dig grave";
 		}
