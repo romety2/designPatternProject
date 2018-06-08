@@ -3,10 +3,10 @@ package test;
 import funeralHome.coffin.Coffin;
 import funeralHome.coffin.FactoryGlassCoffin;
 import funeralHome.coffin.FactoryWoodenCoffin;
+import funeralHome.order.BuilderOrder;
+import funeralHome.order.Order;
 import funeralHome.tombstone.Tombstone;
 import funeralHome.tombstone.StoneTombstone;
-
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -128,5 +128,37 @@ public class TestFuneralHome
 		
 		Assert.assertTrue(tgc.getEpitaphium().equals("Buried in glass coffin"));
 		Assert.assertTrue(twc.getEpitaphium().equals("Buried in wooden coffin"));
+	}
+	
+	@Test
+	public void testBuilderOrder()
+	{
+		BuilderOrder boc = new BuilderOrder();
+		BuilderOrder bot = new BuilderOrder();
+		
+		Order orderC = 
+		boc.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 77)
+		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		
+		Order orderT = 
+		bot.client("Jan2", "Kowalski2", "997").corpse("Michael2", "Jacson2", 77)
+		.coffin(new StoneTombstone(FactoryWoodenCoffin.getInstance().makeEmptyCoffin()))
+		.Build();
+		
+		Assert.assertTrue(orderC.getClient().getFirstName().equals("Jan"));
+		Assert.assertTrue(orderC.getClient().getLastName().equals("Kowalski"));
+		
+		Assert.assertTrue(orderC.getCorpse().getFirstName().equals("Michael"));
+		Assert.assertTrue(orderC.getCorpse().getLastName().equals("Jacson"));
+		
+		Assert.assertTrue(orderC.getCoffin().getMaterial().equals("Glass"));
+		
+		Assert.assertTrue(orderT.getClient().getFirstName().equals("Jan2"));
+		Assert.assertTrue(orderT.getClient().getLastName().equals("Kowalski2"));
+		
+		Assert.assertTrue(orderT.getCorpse().getFirstName().equals("Michael2"));
+		Assert.assertTrue(orderT.getCorpse().getLastName().equals("Jacson2"));
+		
+		Assert.assertTrue(orderT.getCoffin().getMaterial().equals("Wood, Stone"));
 	}
 }
