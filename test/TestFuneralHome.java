@@ -7,6 +7,8 @@ import funeralHome.gravedigger.GravediggerService;
 import funeralHome.order.BuilderOrder;
 import funeralHome.order.Order;
 import funeralHome.tombstone.Tombstone;
+import funeralHome.urn.AdapterUrn;
+import funeralHome.urn.Urn;
 import funeralHome.tombstone.StoneTombstone;
 
 import org.junit.Assert;
@@ -139,11 +141,11 @@ public class TestFuneralHome
 		
 		Order orderC = 
 		boc.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 77, 50)
-		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		.container(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		
 		Order orderT = 
 		bot.client("Jan2", "Kowalski2", "997").corpse("Michael2", "Jacson2", 77, 50)
-		.coffin(new StoneTombstone(FactoryWoodenCoffin.getInstance().makeEmptyCoffin()))
+		.container(new StoneTombstone(FactoryWoodenCoffin.getInstance().makeEmptyCoffin()))
 		.Build();
 		
 		Assert.assertTrue(orderC.getClient().getFirstName().equals("Jan"));
@@ -152,7 +154,7 @@ public class TestFuneralHome
 		Assert.assertTrue(orderC.getCorpse().getFirstName().equals("Michael"));
 		Assert.assertTrue(orderC.getCorpse().getLastName().equals("Jacson"));
 		
-		Assert.assertTrue(orderC.getCoffin().getMaterial().equals("Glass"));
+		Assert.assertTrue(orderC.getContainer().getMaterial().equals("Glass"));
 		
 		Assert.assertTrue(orderT.getClient().getFirstName().equals("Jan2"));
 		Assert.assertTrue(orderT.getClient().getLastName().equals("Kowalski2"));
@@ -160,7 +162,7 @@ public class TestFuneralHome
 		Assert.assertTrue(orderT.getCorpse().getFirstName().equals("Michael2"));
 		Assert.assertTrue(orderT.getCorpse().getLastName().equals("Jacson2"));
 		
-		Assert.assertTrue(orderT.getCoffin().getMaterial().equals("Wood, Stone"));
+		Assert.assertTrue(orderT.getContainer().getMaterial().equals("Wood, Stone"));
 	}
 	
 	@Test
@@ -174,17 +176,35 @@ public class TestFuneralHome
 		
 		Order order1 = 
 		bo1.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 6, 46)
-		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		.container(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		Order order2 = 
 		bo2.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 25, 132)
-		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		.container(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		Order order3 = 
 		bo3.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 21, 182)
-		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		.container(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
 		
 		Assert.assertTrue(gs.handleDigging(order1).equals("Junior gravedigger dig grave"));
 		Assert.assertTrue(gs.handleDigging(order2).equals("Regular gravedigger dig grave"));
 		Assert.assertTrue(gs.handleDigging(order3).equals("Senior gravedigger dig grave"));
-
+	}
+	
+	@Test
+	public void testUrn()
+	{	
+		GravediggerService gs = new GravediggerService();
+		
+		BuilderOrder bo1 = new BuilderOrder();
+		BuilderOrder bo2 = new BuilderOrder();
+		
+		Order order1 = 
+		bo1.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 6, 46)
+		.container(new AdapterUrn(FactoryGlassCoffin.getInstance().makeEmptyCoffin())).Build();
+		Order order2 = 
+		bo2.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 25, 132)
+		.container(new AdapterUrn(new Urn())).Build();
+		
+		Assert.assertTrue(gs.handleDigging(order1).equals("Junior gravedigger dig grave"));
+		Assert.assertTrue(gs.handleDigging(order2).equals("Junior gravedigger dig grave"));
 	}
 }

@@ -1,14 +1,14 @@
 package funeralHome.order;
 
-import funeralHome.coffin.Coffin;
+import funeralHome.container.Container;
 import funeralHome.preson.Client;
 import funeralHome.preson.Corpse;
 
 public class Order
 {
-	private Client client;
-	private Corpse corpse;
-	private Coffin coffin;
+	private Client client = null;
+	private Corpse corpse = null;
+	private Container container = null;
 	
 	public void setClient(Client client)
 	{
@@ -20,9 +20,9 @@ public class Order
 		this.corpse = corpse;
 	}
 	
-	public void setCoffin(Coffin coffin)
+	public void setContainer(Container container)
 	{
-		this.coffin = coffin;
+		this.container = container;
 	}
 	
 	public Client getClient()
@@ -35,8 +35,8 @@ public class Order
 		return this.corpse;
 	}
 	
-	public Coffin getCoffin()
+	public Container getContainer()
 	{
-		return this.coffin;
+		return this.container;
 	}
 }

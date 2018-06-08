@@ -1,8 +1,9 @@
 package funeralHome.order;
 
-import funeralHome.coffin.Coffin;
+import funeralHome.container.Container;
 import funeralHome.preson.Client;
 import funeralHome.preson.Corpse;
+import funeralHome.urn.Urn;
 
 public class BuilderOrder
 {
@@ -21,13 +22,21 @@ public class BuilderOrder
 	
 	public BuilderOrder corpse(Corpse corpse)
 	{
+		if (order.getContainer() != null && order.getContainer() instanceof Urn)
+		{
+			corpse.Burn();
+		}
 		this.order.setCorpse(corpse);
 		return this;
 	}
 	
-	public BuilderOrder coffin(Coffin coffin)
+	public BuilderOrder container(Container container)
 	{
-		this.order.setCoffin(coffin);
+		if (container instanceof Urn && order.getCorpse() != null)
+		{
+			order.getCorpse().Burn();
+		}
+		this.order.setContainer(container);
 		return this;
 	}
 	

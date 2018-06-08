@@ -1,9 +1,11 @@
 package funeralHome.coffin;
 
+import funeralHome.container.Container;
+
 public interface IFactoryCoffin
 {
-	Coffin makeEmptyCoffin();
-	Coffin makeWithOrnamentationsCoffin();
-	Coffin makeWithWreathCoffin();
-	Coffin makeDeluxeCoffin();
+	Container makeEmptyCoffin();
+	Container makeWithOrnamentationsCoffin();
+	Container makeWithWreathCoffin();
+	Container makeDeluxeCoffin();
 }

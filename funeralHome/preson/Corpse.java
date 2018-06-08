@@ -32,4 +32,9 @@ public class Corpse extends Person
 	{
 		return this.growth;
 	}
+	
+	public void Burn()
+	{
+		this.growth = 0;
+	}
 }
