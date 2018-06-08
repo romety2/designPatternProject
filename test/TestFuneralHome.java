@@ -3,6 +3,7 @@ package test;
 import funeralHome.coffin.Coffin;
 import funeralHome.coffin.FactoryGlassCoffin;
 import funeralHome.coffin.FactoryWoodenCoffin;
+import funeralHome.gravedigger.GravediggerService;
 import funeralHome.order.BuilderOrder;
 import funeralHome.order.Order;
 import funeralHome.tombstone.Tombstone;
@@ -160,5 +161,30 @@ public class TestFuneralHome
 		Assert.assertTrue(orderT.getCorpse().getLastName().equals("Jacson2"));
 		
 		Assert.assertTrue(orderT.getCoffin().getMaterial().equals("Wood, Stone"));
+	}
+	
+	@Test
+	public void testGrabediggerService()
+	{
+		GravediggerService gs = new GravediggerService();
+		
+		BuilderOrder bo1 = new BuilderOrder();
+		BuilderOrder bo2 = new BuilderOrder();
+		BuilderOrder bo3 = new BuilderOrder();
+		
+		Order order1 = 
+		bo1.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 2)
+		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		Order order2 = 
+		bo2.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 8)
+		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		Order order3 = 
+		bo3.client("Jan", "Kowalski", "997").corpse("Michael", "Jacson", 40)
+		.coffin(FactoryGlassCoffin.getInstance().makeEmptyCoffin()).Build();
+		
+		Assert.assertTrue(gs.handleDigging(order1).equals("Junior gravedigger dig grave"));
+		Assert.assertTrue(gs.handleDigging(order2).equals("Regular gravedigger dig grave"));
+		Assert.assertTrue(gs.handleDigging(order3).equals("Senior gravedigger dig grave"));
+
 	}
 }

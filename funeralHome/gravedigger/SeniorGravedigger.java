@@ -1,29 +1,18 @@
 package funeralHome.gravedigger;
 
-import funeralHome.coffin.Coffin;
+import funeralHome.order.Order;
 
 public class SeniorGravedigger extends Gravedigger
 {
 	Gravedigger supervsion;
-	
-	public SeniorGravedigger()
-	{
-	}
 	
 	public SeniorGravedigger(Gravedigger supervision)
 	{
 		this.supervision = supervision;
 	}
 	
-	public void digGrave(Coffin coffin)
+	public String digGrave(Order order)
 	{
-		if(coffin.getSize() <= 50)
-		{
-			//coœ
-		}
-		else
-		{
-			supervision.digGrave(coffin);
-		}
+			return "Senior gravedigger dig grave";
 	}
 }
